@@ -9,9 +9,12 @@ function AuthProvider({ children }) {
 
   useEffect(() => {
     setToken(123)
-  }, [])
+  }, [token])
 
-  return <AuthContext.Provider value={{ token }}>{children}</AuthContext.Provider>
+  return (
+    <AuthContext.Provider value={{ token }}>
+      {children}
+    </AuthContext.Provider>)
 }
 
 export default function useAuth() {

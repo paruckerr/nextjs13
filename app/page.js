@@ -1,11 +1,13 @@
 'use client'
 
 import { useAuth } from '../contexts/auth'
-import Dashboard from './dashboard/page'
-import Login from './login/page'
+import { useRouter } from 'next/navigation';
 
 export default function Page() {
   const { token } = useAuth()
-  
-  return token ? <Dashboard /> : <Login />
+  const router = useRouter()
+
+  console.log(token)
+
+  return router.replace(token !== null ? '/dashboard' : '/login')
 }
