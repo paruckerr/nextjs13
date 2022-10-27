@@ -1,27 +1,23 @@
-'use client'
+"use client";
 
-import { Suspense } from 'react';
-import { NextUIProvider, CssBaseline } from '@nextui-org/react';
-import AuthProvider from '../contexts/index';
-import Loading from './loading'
+import { Suspense } from "react";
+import AuthProvider from "../contexts/index";
+import Loading from "./loading";
+
+import "../styles/globals.css";
+import "../styles/output.css";
 
 export default function RootLayout({ children }) {
-  const styles = CssBaseline.flush()
-
   return (
-    <html lang="en">
+    <html className="h-full bg-gray-50" lang="en">
       <head>
         <title>Mission Brasil</title>
-        {styles}
       </head>
-      <body>
-        <NextUIProvider>
-          <AuthProvider>
-            <Suspense fallback={<Loading />}>{children}</Suspense>
-          </AuthProvider>
-        </NextUIProvider>
+      <body className="h-full">
+        <AuthProvider>
+          <Suspense fallback={<Loading />}>{children}</Suspense>
+        </AuthProvider>
       </body>
     </html>
   );
 }
-

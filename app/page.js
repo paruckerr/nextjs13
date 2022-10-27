@@ -1,13 +1,13 @@
-'use client'
+"use client";
 
-import { useAuth } from '../contexts/auth'
-import { useRouter } from 'next/navigation';
+import { useAuth } from "../contexts/auth";
+import { useRouter } from "next/navigation";
 
 export default function Page() {
-  const { token } = useAuth()
-  const router = useRouter()
+  const { token } = useAuth();
+  const router = useRouter();
 
-  console.log(token)
+  console.log(token);
 
-  return router.replace(token !== null ? '/dashboard' : '/login')
+  return router.replace(token !== null ? "/dashboard" : "/login");
 }
